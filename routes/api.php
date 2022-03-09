@@ -3,6 +3,10 @@
 use App\Http\Controllers\API\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\LocationController;
+
+
 
 
 /*
@@ -21,3 +25,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('book', BookController::class);
+
+
+Route::apiResource('/location', LocationController::class);
+
+
+Route::post('/sanctum/token', [UserController::class, 'token']);
+Route::post('/sanctum/token/register', [UserController::class, 'register']);
+
+
+
+Route::apiResource('location', LocationController::class);
+
+
+
+
